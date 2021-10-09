@@ -1,0 +1,98 @@
+<section class="w-97">
+
+  <form [formGroup]="addPostForm" (submit)="createApps()" novalidate enctype="multipart/form-data">
+      <mat-card class="example-card w-70 mt-10 fl">
+          <mat-card-header>
+              <mat-card-title class="uppercase">Publish Your Application on BDAppsStore</mat-card-title>
+          </mat-card-header>
+      <p>
+          <mat-form-field appearance="outline" class="w-97">
+            <mat-label>Your App Description</mat-label>
+            <textarea rows="10" matInput placeholder="Ex. It makes me feel..." formControlName="AppDescription"></textarea>
+            <mat-error
+              *ngIf="!addPostForm.controls.AppDescription?.valid && (addPostForm.controls.AppDescription?.dirty
+              ||addPostForm.controls.AppDescription?.touched)">
+              Apps Discription must have more than 10 chars
+          </mat-error>
+          </mat-form-field>
+      </p>
+      <div style="margin-bottom: 50px;overflow: hidden;" class="appname">
+        <div >
+            <h4>App Category</h4>
+                <mat-form-field appearance="outline">
+                  <mat-label>Choose an option</mat-label>
+                  <mat-select formControlName="AppCategory">
+                    <mat-option *ngFor="let c of listCategories" value="{{c.appCategoryId}}">{{c.appCategoryName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-error
+                    *ngIf="!addPostForm.controls.AppCategory?.valid && (addPostForm.controls.AppCategory?.dirty
+                    ||addPostForm.controls.AppCategory?.touched)">
+                    Please select Category
+                </mat-error>
+        </div>
+      </div>
+      <div style="margin-bottom: 50px;overflow: hidden;">
+          <div>
+              <h4>App Name</h4>
+                  <mat-form-field appearance="outline">
+                    <input formControlName="AppName" matInput placeholder="Placeholder">
+                  </mat-form-field>
+
+                  <mat-error
+                      *ngIf="!addPostForm.controls.AppName?.valid && (addPostForm.controls.AppName?.dirty
+                      ||addPostForm.controls.AppName?.touched)">
+                      Your App Name Please
+                  </mat-error>
+          </div>
+      </div>
+          <button type="submit" mat-raised-button color="accent" [disabled]="!addPostForm.valid"><mat-icon>save</mat-icon> &nbsp; Publish <mat-spinner color="#fff" *ngIf="saving" [diameter]="25"></mat-spinner></button>
+  </mat-card>
+  <mat-card class="example-card w-23 mt-10 fr">
+      <mat-card-header>
+          <mat-card-title class="uppercase">Apps Icon</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <p>
+              <input type="file" (change)="fileChanged($event)" formControlName="imageName" required >
+          </p>
+      </mat-card-content>
+  </mat-card>
+  <mat-card class="example-card w-23 mt-10 fr">
+    <mat-card-header>
+        <mat-card-title class="uppercase">App Type</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            <mat-slide-toggle formControlName="PayOrNot"> Payables | Free</mat-slide-toggle>
+        </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="example-card w-23 mt-10 fr">
+      <mat-card-header>
+          <mat-card-title class="uppercase">Application Size</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <p >
+              <input class="appsiz" type="number" matInput formControlName="AppSize" maxlength="3">
+          </p>
+      </mat-card-content>
+  </mat-card>
+  <mat-card class="example-card w-23 mt-10 fr">
+      <mat-card-header>
+          <mat-card-title class="uppercase">Published Date</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Choose a date</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="AppPublish" required>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+          </p>
+      </mat-card-content>
+  </mat-card>
+  </form>
+</section>

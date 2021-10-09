@@ -1,0 +1,27 @@
+<mat-card class="matmat">
+  <mat-card-content>
+  <mat-card-title>Add App Category</mat-card-title>
+<form [formGroup]="addCategoryForm" (submit)="createCategory()"  >
+  <p>
+    <mat-form-field appearance="outline" class="appcategoryinput">
+      <mat-label>Create App Category</mat-label>
+      <input matInput placeholder="App Category like Business" formControlName="appCategoryName">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-error
+						*ngIf="!addCategoryForm.controls.appCategoryName?.valid && (addCategoryForm.controls.appCategoryName?.dirty
+						||addCategoryForm.controls.appCategoryName?.touched)">
+						Category Name is not valid
+					</mat-error>
+    </mat-form-field>
+  </p>
+  <P class="catbutton">
+
+    <button  mat-flat-button color="primary" [disabled]="!addCategoryForm.valid">Create Category</button>
+    <button style="float:right;margin-right: 50px;overflow: hidden;" [routerLink]="['/catlist']" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+      GO
+    </button>
+
+  </P>
+</form>
+</mat-card-content>
+</mat-card>

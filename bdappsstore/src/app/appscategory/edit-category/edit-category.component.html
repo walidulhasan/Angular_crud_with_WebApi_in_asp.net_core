@@ -1,0 +1,30 @@
+<div *ngIf="dataLoaded">
+<mat-card>
+  <mat-card-content>
+  <mat-card-title>Update App Category</mat-card-title>
+<form [formGroup]="editCategoryForm"  (submit)="updateCategory()"  >
+  <p>
+    <mat-form-field appearance="outline" class="appcategoryinput" style="display: none;">
+      <mat-label>Create App Category</mat-label>
+      <input matInput placeholder="Id" formControlName="appCategoryId">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="appcategoryinput">
+      <mat-label>Create App Category</mat-label>
+      <input matInput placeholder="App Category like Business" formControlName="appcategoryName">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-error
+						*ngIf="!editCategoryForm.controls.appCategoryName?.valid && (editCategoryForm.controls.appCategoryName?.dirty
+						||editCategoryForm.controls.appCategoryName?.touched)">
+						Category Name is not valid
+					</mat-error>
+    </mat-form-field>
+  </p>
+  <P class="btntype">
+    <button mat-flat-button color="primary" [disabled]="!editCategoryForm.valid">Update Category</button>
+    <button style="margin-left: 5px;" mat-flat-button color="warn" [routerLink]="['/catlist']">Back to List</button>
+  </P>
+</form>
+</mat-card-content>
+</mat-card>
+</div>

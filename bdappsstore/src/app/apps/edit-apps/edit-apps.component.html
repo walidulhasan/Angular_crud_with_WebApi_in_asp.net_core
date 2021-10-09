@@ -1,0 +1,109 @@
+<section class="w-97" *ngIf="DataLoaded">
+
+  <form [formGroup]="editPostForm" (submit)="EditPost()" novalidate enctype="multipart/form-data">
+      <mat-card class="example-card w-70 mt-10 fl">
+          <mat-card-header>
+              <mat-card-title class="uppercase">Eidt App Published</mat-card-title>
+          </mat-card-header>
+      <p>
+          <mat-form-field appearance="outline" class="w-97">
+            <mat-label>App Name</mat-label>
+            <input matInput placeholder="Enter post title" formControlName="AppName" required >
+
+            <mat-error
+              *ngIf="!editPostForm.controls.AppName?.valid && (editPostForm.controls.AppName?.dirty
+              ||editPostForm.controls.AppName?.touched)">
+              App Name is not valid
+          </mat-error>
+          </mat-form-field>
+      </p>
+      <input style="display: none;" matInput placeholder="Enter post id" formControlName="AppId" required >
+      <input style="display: none;" matInput placeholder="ext image name" formControlName="ExtImageName">
+      <p>
+          <mat-form-field appearance="outline" class="w-97">
+            <mat-label>App Description</mat-label>
+            <textarea rows="10" matInput placeholder="Ex. It makes me feel..." formControlName="AppDescription"></textarea>
+            <mat-error
+              *ngIf="!editPostForm.controls.AppDescription?.valid && (editPostForm.controls.AppDescription?.dirty
+              ||editPostForm.controls.AppDescription?.touched)">
+              AppDescription must have more than 10 chars
+          </mat-error>
+          </mat-form-field>
+      </p>
+      <div style="margin-bottom: 50px;overflow: hidden;" class="appxiz">
+        <div>
+            <h4>Category</h4>
+                <mat-form-field appearance="outline">
+                  <mat-label>App Size</mat-label>
+                  <input type="number" matInput placeholder="Enter post title" formControlName="AppSize" required >
+                </mat-form-field>
+                <mat-error
+                    *ngIf="!editPostForm.controls.AppSize?.valid && (editPostForm.controls.AppSize?.dirty
+                    ||editPostForm.controls.AppSize?.touched)">
+                    Please select Category
+                </mat-error>
+        </div>
+    </div>
+      <div style="margin-bottom: 50px;overflow: hidden;" class="optionss">
+          <div class="w-50 fl">
+              <h4>Category</h4>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select formControlName="AppCategoryId">
+                      <mat-option *ngFor="let c of listCategories" [value]="c.appCategoryId">{{c.appCategoryName}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <mat-error
+                      *ngIf="!editPostForm.controls.AppCategoryId?.valid && (editPostForm.controls.AppCategoryId?.dirty
+                      ||editPostForm.controls.AppCategoryId?.touched)">
+                      Please select Category
+                  </mat-error>
+          </div>
+      </div>
+
+          <button type="submit" mat-raised-button color="primary" [disabled]="!editPostForm.valid"><mat-icon>save</mat-icon> &nbsp; Update</button>
+  </mat-card>
+  <mat-card class="example-card w-23 mt-10 fr">
+      <mat-card-header>
+          <mat-card-title class="uppercase">Apps Icon</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <div>
+              <input type="file" (change)="fileChanged($event)" formControlName="Picture" >
+              <div class="imgPreview">
+                  <img class="img" src="http://localhost:43383/{{appsDetails.picture}}" alt="{{appsDetails.picture}}">
+              </div>
+          </div>
+
+      </mat-card-content>
+  </mat-card>
+  <mat-card class="example-card w-23 mt-10 fr">
+      <mat-card-header>
+          <mat-card-title class="uppercase">Payables or Free</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <p>
+              <mat-slide-toggle formControlName="PayOrNot"> Payables | Free </mat-slide-toggle>
+          </p>
+      </mat-card-content>
+  </mat-card>
+  <mat-card class="example-card w-23 mt-10 fr">
+      <mat-card-header>
+          <mat-card-title class="uppercase">Published Date</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Choose a date</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="AppPublish" required>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+          </p>
+      </mat-card-content>
+  </mat-card>
+
+  </form>
+
+</section>

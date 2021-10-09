@@ -1,0 +1,28 @@
+<mat-toolbar style="background-color: darkblue;" class="navb">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon style="color: white;">home</mat-icon>
+  </button>
+  <span style="color: white;">My App</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon style="color:white">menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <a [routerLink]="['/bdapps']" style="text-decoration: none;" target="_blank">
+        <mat-icon><img src="assets/img/digbd.svg" width="50px" ></mat-icon><span></span>
+        <span style="margin-left: 10px;">BD apps</span>
+      </a>
+
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
+
+</mat-toolbar>

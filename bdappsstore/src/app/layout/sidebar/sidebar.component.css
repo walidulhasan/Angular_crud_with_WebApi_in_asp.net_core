@@ -1,0 +1,30 @@
+.menuListLink{
+  text-decoration: none;
+  margin-top: 20px;
+}
+.menuListLinks{
+  text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.menuListLinkss{
+  text-decoration: none;
+  margin-top: 40px;
+}
+.navbutton{
+  display: block;
+  position: relative;
+  box-shadow: -4px -4px 12px rgb(255 255 255), 4px 4px 12px rgb(121 130 160 / 75%);
+  width: 220px;
+  height: 45px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  background: #ebecf0;
+  line-height: 36px;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+

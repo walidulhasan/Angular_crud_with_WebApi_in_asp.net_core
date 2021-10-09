@@ -1,0 +1,21 @@
+
+<div>
+  <a  [routerLink]="['/home']" > <img style="margin-top: 10px; margin-left: 40px;" width="200px" src="assets/img/digbd.svg"></a>
+</div>
+<br>
+<mat-list role="list">
+  <mat-list-item role="listitem">
+    <a  class="menuListLinks"  [routerLink]="['/catlist/catcreate']" ><button class="navbutton">Add Category</button></a>
+  </mat-list-item>
+  <mat-list-item role="listitem">
+    <a  class="menuListLink"  [routerLink]="['/catlist']" ><button class="navbutton">View Category</button></a>
+  </mat-list-item>
+  <mat-list-item role="listitem">
+    <a style="margin-top: 31px;"  class="menuListLink"  [routerLink]="['/list']"><button class="navbutton">App Action</button></a>
+  </mat-list-item>
+  <mat-list-item role="listitem">
+    <a class="menuListLinkss"  [routerLink]="['list/create']"><button class="navbutton">App Publish</button></a>
+  </mat-list-item>
+
+</mat-list>
+

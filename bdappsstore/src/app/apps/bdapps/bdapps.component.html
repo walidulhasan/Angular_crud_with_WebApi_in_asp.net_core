@@ -1,0 +1,22 @@
+
+<mat-progress-bar *ngIf="isLoaded" mode="query"></mat-progress-bar>
+<mat-card class="example-card" *ngFor="let category of listApps" style="max-height: 500px; min-height: 400px;">
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <h1  style="float: left;color:red;margin-bottom: 0;margin-left: 16px;">{{category.appName}}</h1>
+    <mat-progress-bar style="color:blue" mode="buffer" ></mat-progress-bar>
+    <i style="margin-left: 10px;">Category : {{category.appName | uppercase}}</i>
+    <p style="text-align: justify;">
+      {{category.appDescription}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a href="assets/img/about.jpg" download>
+      <button   mat-button>Download</button>
+    </a>
+    <a href="https://material.angular.io/assets/img/examples/shiba2.jpg" target="_blank">
+      <button   mat-button>SHARE</button>
+    </a>
+    <button  style="margin-left: 51px;color: red;" mat-button>{{category.payOrNot}}</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,13 @@
+
+<mat-spinner style="margin:0 auto; margin-top: 250px;" mode="indeterminate"  *ngIf="isLoaded"></mat-spinner>
+
+<div *ngIf="listCategory" class="alert alert-secondary shadow-soft" role="alert">
+  <span class="alert-inner--text" class="headerlis">Total Apps Category is : <b style="color:red">{{listCategory.length}}</b></span>
+</div>
+
+<mat-card class="categorys" role="list" *ngFor="let category of listCategory">
+
+   <span class="actionlinks"><span class="category">{{category.appCategoryName}}</span>  <a  class="actionLink" [routerLink]="['catview', category.appCategoryId]"  mat-fab color="accent" > <mat-icon>remove_red_eye</mat-icon></a>  <a mat-fab color="primary" class="actionLink" [routerLink]="['cetedit', category.appCategoryId]" ><mat-icon>edit</mat-icon></a>  <a class="actionLink"  [routerLink]="['catdelete', category.appCategoryId]" mat-fab color="warn" ><mat-icon>delete</mat-icon></a></span>
+</mat-card>
+
+

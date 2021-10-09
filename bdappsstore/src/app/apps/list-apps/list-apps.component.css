@@ -1,0 +1,40 @@
+table {
+  width: 100%;
+}
+
+
+
+/*button style*/
+.mat-fab{
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+mat-icon:not(.add) {
+  margin-top: -22px;
+  font-size: 20px;
+}
+.img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-top: 7px;
+}
+thead > tr > th:nth-child(4) {
+  width: 20%;
+}
+
+.alert-secondary {
+  background: #e6e7ee;
+  color: #2D4CC8;
+}
+.alert {
+  padding: 1rem 1.5rem;
+  border: #44476A;
+  font-size: 0.875rem;
+  border: 0.0625rem solid #D1D9E6;
+}
+.shadow-soft {
+  box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff !important;
+}

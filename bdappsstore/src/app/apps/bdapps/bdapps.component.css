@@ -1,0 +1,15 @@
+.example-card {
+  max-width: 200px;
+  margin-bottom: 8px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  width: 40%;
+  display: inline-block;
+  vertical-align: middle;
+
+}
+.hi{
+  text-decoration: none;
+}
